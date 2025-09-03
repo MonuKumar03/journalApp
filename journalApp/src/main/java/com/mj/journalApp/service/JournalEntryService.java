@@ -13,8 +13,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-
-
 @Component
 @Slf4j
 public class JournalEntryService {
@@ -31,10 +29,9 @@ public class JournalEntryService {
             journalEntry.setDate(LocalDateTime.now());
             JournalEntry saved = journalEntryRepository.save(journalEntry);
             user.getJournalEntries().add(saved);
-//            user.setUserName(null);
             userService.saveUser(user);
         } catch (Exception e) {
-            System.out.println(e);
+            log.error("Error",e);
             throw new RuntimeException("An error occurred while saving the entry");
         }
 
@@ -61,7 +58,7 @@ public class JournalEntryService {
                 journalEntryRepository.deleteById(id);
             }
         } catch (Exception e) {
-            log.error("Errpr ",e);
+            log.error("Error ",e);
             throw new RuntimeException("An error occured while deleting the entry");
         }
         return removed;
