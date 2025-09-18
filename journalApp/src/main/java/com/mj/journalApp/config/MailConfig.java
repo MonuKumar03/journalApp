@@ -16,7 +16,7 @@
 //            mailSender.setHost("smtp.gmail.com");
 //            mailSender.setPort(587);
 //            mailSender.setUsername("monujaiswalk123@gmail.com");
-//            mailSender.setPassword("fgrl fqpr xxem ocwf");
+//            mailSender.setPassword(${app-password});
 //
 //            Properties props = mailSender.getJavaMailProperties();
 //            props.put("mail.smtp.auth", "true");
